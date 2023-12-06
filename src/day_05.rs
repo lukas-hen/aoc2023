@@ -2,7 +2,6 @@ use std::error::Error;
 use std::fs::File;
 use std::io::{BufReader, BufRead, Lines};
 
-#[allow(dead_code)]
 pub fn part_1() -> Result<(), Box<dyn Error>> {
 
     let filepath = "data/day_05/1_real.in".to_string();
@@ -33,7 +32,6 @@ pub fn part_1() -> Result<(), Box<dyn Error>> {
 
 }
 
-#[allow(dead_code)]
 pub fn part_2() -> Result<(), Box<dyn Error>> {
 
     let filepath = "data/day_05/1_real.in".to_string();

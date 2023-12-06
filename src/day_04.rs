@@ -3,9 +3,6 @@ use std::fs::File;
 use std::io::{BufReader, BufRead};
 use std::collections::HashSet;
 
-
-#[allow(dead_code)]
-#[allow(unused)]
 pub fn part_1() -> Result<(), Box<dyn Error>> {
 
     let filepath = "data/day_04/1_real.in".to_string();

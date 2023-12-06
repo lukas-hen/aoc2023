@@ -2,8 +2,6 @@ use std::error::Error;
 use std::fs::File;
 use std::io::{BufReader, BufRead};
 
-
-#[allow(dead_code)]
 pub fn part_1() -> Result<(), Box<dyn Error>>{
 
     let filepath = "data/day_03/1_real.in".to_string();
@@ -72,7 +70,7 @@ pub fn part_1() -> Result<(), Box<dyn Error>>{
     Ok(())
 }
 
-#[allow(dead_code)]
+
 #[allow(unused)]
 pub fn part_2() -> Result<(), Box<dyn Error>>{
 
@@ -108,7 +106,7 @@ pub fn part_2() -> Result<(), Box<dyn Error>>{
     Ok(())
 }
 
-#[allow(dead_code)]
+
 fn scan_number_len(slice: &[char]) -> usize {
 
     // Takes slice and position for a digit and 
@@ -132,7 +130,7 @@ fn scan_number_len(slice: &[char]) -> usize {
     
 }
 
-#[allow(dead_code)]
+
 fn scan_number(slice: &[char]) -> Option<String> {
 
     // Takes slice and position for a digit and 
@@ -239,8 +237,7 @@ impl SafeCharArr2d {
 
     }
 
-    #[allow(dead_code)]
-    #[allow(unused)]
+    
     fn get_unique_neighbour_nums(&self, r: usize, c: usize) {
 
         let neighbours = self.get_neighbours(r, c);

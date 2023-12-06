@@ -2,8 +2,6 @@ use std::fs::File;
 use std::error::Error;
 use std::io::{BufReader, BufRead};
 
-#[allow(dead_code)]
-
 pub fn run() -> Result<(), Box<dyn Error>> {
     
     let filepath = String::from("data/day_01/1_real.in");
