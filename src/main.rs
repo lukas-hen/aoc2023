@@ -11,6 +11,7 @@ mod day_05;
 mod day_06;
 mod day_07;
 mod day_08;
+mod day_09;
 
 fn main() -> Result<(), Box<dyn Error>> {
 
@@ -25,7 +26,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     //day_06::part_2();
     //day_07::part_1_and_2();
     //day_08::part_1();
-    day_08::part_2();
+    //day_08::part_2();
+    day_09::part_1_and_2();
 
     Ok(())
 }
