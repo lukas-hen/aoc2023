@@ -21,9 +21,6 @@ pub fn part_1() -> Result<(), Box<dyn Error>> {
 
     let mut cur = GridCursor::new(&grid, starting_position.0, starting_position.1);
 
-    println!("start_val: {}", cur.value().unwrap());
-    println!("start_pos: {}, {}", starting_position.0, starting_position.1 );
-
     let start_neighbors =  vec![
         (Direction::North, cur.peek(Direction::North)),
         (Direction::South, cur.peek(Direction::South)),
@@ -31,31 +28,30 @@ pub fn part_1() -> Result<(), Box<dyn Error>> {
         (Direction::East, cur.peek(Direction::East)),
     ];
 
-    //println!("{:?}", start_neighbors);
 
-    // let valid_starts = [
-    //         (Direction::East, Some(&'7')),
-    //         (Direction::North, Some(&'7')),
-    //         (Direction::North, Some(&'|')),
-    //         (Direction::South, Some(&'|')),
-    //         (Direction::South, Some(&'L')),
-    //         (Direction::West, Some(&'L')),
-    //         (Direction::East, Some(&'J')),
-    //         (Direction::South, Some(&'J')),
-    //         (Direction::East, Some(&'-')),
-    //         (Direction::West, Some(&'-')),
-    //     ];
+    let valid_starts = [
+            (Direction::East, Some(&'7')),
+            (Direction::North, Some(&'7')),
+            (Direction::North, Some(&'|')),
+            (Direction::South, Some(&'|')),
+            (Direction::South, Some(&'L')),
+            (Direction::West, Some(&'L')),
+            (Direction::East, Some(&'J')),
+            (Direction::South, Some(&'J')),
+            (Direction::East, Some(&'-')),
+            (Direction::West, Some(&'-')),
+        ];
 
-    // let any_start_dir: Direction = start_neighbors
-    //     .iter()
-    //     .filter(|&n| n.1.is_some())
-    //     .filter(|&n| valid_starts.contains(n))
-    //     .next() // Doesn't matter what dir to start in.
-    //     .unwrap()
-    //     .0
-    //     .clone(); 
+    let any_start_dir: Direction = start_neighbors
+        .iter()
+        .filter(|&n| n.1.is_some())
+        .filter(|&n| valid_starts.contains(n))
+        .next() // Doesn't matter what dir to start in.
+        .unwrap()
+        .0
+        .clone(); 
     
-    let loop_len = traverse_entire_loop(&mut cur, Direction::East);
+    let loop_len = traverse_entire_loop(&mut cur, any_start_dir);
     println!("{:?}", loop_len/2);
 
     Ok(())
@@ -67,8 +63,6 @@ fn traverse_entire_loop(cur: &mut GridCursor, start_dir: Direction) -> u32 {
     let mut n_traversals: u32 = 1;
 
     while cur_val != 'S' { 
-
-        println!("{}", cur_val);
 
         match cur_val {
             '7' if cur.last_transition == Direction::North => cur.west(),
